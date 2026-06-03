@@ -425,14 +425,15 @@ td.md-date {
 .sq-player {
   align-items: center;
   display: flex;
-  font-size: 0.75rem;
-  gap: 5px;
-  padding: 2px 0;
+  font-size: 0.88rem;
+  gap: 6px;
+  padding: 3px 0;
 }
 
 .sq-player-name {
   color: #58a6ff;
   flex: 1;
+  font-size: 0.85rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -440,7 +441,33 @@ td.md-date {
 
 .sq-player-price {
   color: #3fb950;
-  font-size: 0.7rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.sq-player-remove {
+  background: none;
+  border: none;
+  color: #484f58;
+  cursor: pointer;
+  font-size: 0.75rem;
+  line-height: 1;
+  padding: 1px 3px;
+  border-radius: 3px;
+}
+
+.sq-player-remove:hover {
+  background: #f85149;
+  color: #fff;
+}
+
+.sq-section-title {
+  color: #484f58;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
 }
 
 .sq-empty {
