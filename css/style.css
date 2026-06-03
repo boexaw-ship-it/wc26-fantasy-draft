@@ -460,3 +460,58 @@ td.md-date {
   #squad-sidebar { display: none; }
   #picker-panel { width: 260px; }
 }
+
+/* ── Group Colors ── */
+/* Each group gets a subtle left border + faint background tint */
+tr[data-group="a"] { border-left: 3px solid #388bfd; }
+tr[data-group="b"] { border-left: 3px solid #3fb950; }
+tr[data-group="c"] { border-left: 3px solid #d29922; }
+tr[data-group="d"] { border-left: 3px solid #f85149; }
+tr[data-group="e"] { border-left: 3px solid #bc8cff; }
+tr[data-group="f"] { border-left: 3px solid #39c5cf; }
+tr[data-group="g"] { border-left: 3px solid #ff7b72; }
+tr[data-group="h"] { border-left: 3px solid #ffa657; }
+tr[data-group="i"] { border-left: 3px solid #79c0ff; }
+tr[data-group="j"] { border-left: 3px solid #56d364; }
+tr[data-group="k"] { border-left: 3px solid #e3b341; }
+tr[data-group="l"] { border-left: 3px solid #f47067; }
+
+tr[data-group="a"] td.group-badge { color: #388bfd; }
+tr[data-group="b"] td.group-badge { color: #3fb950; }
+tr[data-group="c"] td.group-badge { color: #d29922; }
+tr[data-group="d"] td.group-badge { color: #f85149; }
+tr[data-group="e"] td.group-badge { color: #bc8cff; }
+tr[data-group="f"] td.group-badge { color: #39c5cf; }
+tr[data-group="g"] td.group-badge { color: #ff7b72; }
+tr[data-group="h"] td.group-badge { color: #ffa657; }
+tr[data-group="i"] td.group-badge { color: #79c0ff; }
+tr[data-group="j"] td.group-badge { color: #56d364; }
+tr[data-group="k"] td.group-badge { color: #e3b341; }
+tr[data-group="l"] td.group-badge { color: #f47067; }
+
+/* Group separator row */
+tr.group-header-row td {
+  background: #1c2128;
+  color: #8b949e;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  text-transform: uppercase;
+  border-top: 2px solid #30363d;
+}
+
+/* Flag image */
+.team-flag {
+  border-radius: 2px;
+  height: 16px;
+  margin-right: 6px;
+  object-fit: cover;
+  vertical-align: middle;
+  width: 24px;
+}
+
+.team-cell {
+  align-items: center;
+  display: flex;
+}
