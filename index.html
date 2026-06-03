@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WC26 Fantasy Draft</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ── Header ── -->
+  <header>
+    <h1>⚽ WC26 <span>Fantasy Draft</span></h1>
+    <div id="budget-bar">
+      <label>Budget:</label>
+      <input id="budget-input" type="number" min="50" max="300" step="0.5" value="100" />
+      <span>Spent: <strong id="budget-spent">0 / 100</strong></span>
+      <span id="squad-count">0 / 15 players</span>
+    </div>
+  </header>
+
+  <!-- ── MD Tabs ── -->
+  <div id="tabs">
+    <button class="tab-btn active" data-md="1">MD 1 &nbsp;<small>Jun 11–18</small></button>
+    <button class="tab-btn" data-md="2">MD 2 &nbsp;<small>Jun 18–24</small></button>
+    <button class="tab-btn" data-md="3">MD 3 &nbsp;<small>Jun 24–28</small></button>
+  </div>
+
+  <!-- ── Toolbar ── -->
+  <div id="toolbar">
+    <span class="toolbar-label">Filter:</span>
+    <select id="filter-group">
+      <option value="">All Groups</option>
+    </select>
+    <select id="filter-position">
+      <option value="">All Pos</option>
+      <option value="GK">GK</option>
+      <option value="DEF">DEF</option>
+      <option value="MID">MID</option>
+      <option value="FWD">FWD</option>
+    </select>
+    <input id="filter-name" type="text" placeholder="Search player…" />
+    <button id="btn-clear-squad">🗑 Clear MD</button>
+  </div>
+
+  <!-- ── Main Layout ── -->
+  <div id="main">
+
+    <!-- Draft Table -->
+    <div id="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th class="col-group">GRP</th>
+            <th class="col-team">Team</th>
+            <th class="col-date">Match</th>
+            <th class="col-pos">GK</th>
+            <th class="col-pos">DEF</th>
+            <th class="col-pos">MID</th>
+            <th class="col-pos">FWD</th>
+          </tr>
+        </thead>
+        <tbody id="draft-tbody">
+          <tr>
+            <td colspan="7" style="padding:20px;color:#8b949e;text-align:center;">
+              Loading data…
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Player Picker Panel -->
+    <div id="picker-panel">
+      <div id="picker-header">
+        <span id="picker-title">Select Player</span>
+        <button id="picker-close">✕</button>
+      </div>
+      <input id="picker-search" type="text" placeholder="Search name…" />
+      <div id="picker-list"></div>
+    </div>
+
+    <!-- Squad Summary Sidebar -->
+    <div id="squad-sidebar">
+      <h2>My Squad</h2>
+      <div id="squad-sidebar-content"></div>
+    </div>
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/draft.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
