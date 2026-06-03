@@ -99,6 +99,8 @@ const UI = (() => {
       squads = squads.filter(s => s.group.toUpperCase() === groupFilter.toUpperCase());
     }
 
+    let lastGroup = null;
+
     for (const squad of squads) {
       const players = _state.playersBySquad[squad.id] || [];
 
@@ -114,7 +116,20 @@ const UI = (() => {
         if (!hasMatch) continue;
       }
 
+      // Group header separator row
+      if (squad.group !== lastGroup) {
+        lastGroup = squad.group;
+        const headerRow = document.createElement('tr');
+        headerRow.className = 'group-header-row';
+        const headerTd = document.createElement('td');
+        headerTd.colSpan = 7;
+        headerTd.textContent = `GROUP ${squad.group.toUpperCase()}`;
+        headerRow.appendChild(headerTd);
+        tbody.appendChild(headerRow);
+      }
+
       const tr = document.createElement('tr');
+      tr.dataset.group = squad.group.toLowerCase();
 
       // GROUP
       const tdGroup = document.createElement('td');
@@ -122,10 +137,25 @@ const UI = (() => {
       tdGroup.textContent = squad.group.toUpperCase();
       tr.appendChild(tdGroup);
 
-      // TEAM
+      // TEAM (with flag)
       const tdTeam = document.createElement('td');
       tdTeam.className = 'team-name';
-      tdTeam.textContent = squad.name;
+      const teamCell = document.createElement('div');
+      teamCell.className = 'team-cell';
+      const flagUrl = getFlagUrl(squad.id);
+      if (flagUrl) {
+        const img = document.createElement('img');
+        img.className = 'team-flag';
+        img.src = flagUrl;
+        img.alt = squad.abbr;
+        img.loading = 'lazy';
+        img.onerror = () => { img.style.display = 'none'; };
+        teamCell.appendChild(img);
+      }
+      const nameSpan = document.createElement('span');
+      nameSpan.textContent = squad.name;
+      teamCell.appendChild(nameSpan);
+      tdTeam.appendChild(teamCell);
       tr.appendChild(tdTeam);
 
       // MD Date
