@@ -16,6 +16,19 @@ const Draft = (() => {
     }
   }
 
+  // Get all picks with location info (squadId, pos, index) for remove-by-id
+  function getAllPicksWithLocation(md) {
+    const all = [];
+    for (const squadId in picks[md]) {
+      for (const pos in picks[md][squadId]) {
+        picks[md][squadId][pos].forEach((p, index) => {
+          all.push({ ...p, squadId: parseInt(squadId), pos, index });
+        });
+      }
+    }
+    return all;
+  }
+
   // Get all picked players for an MD (flat list)
   function getAllPicks(md) {
     const all = [];
@@ -124,6 +137,7 @@ const Draft = (() => {
 
   return {
     SQUAD_LIMITS,
+    getAllPicksWithLocation,
     TOTAL_SLOTS,
     getSlots,
     getAllPicks,

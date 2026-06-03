@@ -386,8 +386,23 @@ const UI = (() => {
           pr.className = 'sq-player-price';
           pr.textContent = p.price.toFixed(1);
 
+          const rm = document.createElement('button');
+          rm.className = 'sq-player-remove';
+          rm.textContent = '✕';
+          rm.title = 'Remove';
+          rm.addEventListener('click', () => {
+            const picksData = Draft.getAllPicksWithLocation(md);
+            const found = picksData.find(x => x.id === p.id && x.pos === pos);
+            if (found) {
+              Draft.removePick(md, found.squadId, found.pos, found.index);
+              Draft.save();
+              renderAll();
+            }
+          });
+
           row.appendChild(n);
           row.appendChild(pr);
+          row.appendChild(rm);
           section.appendChild(row);
         }
       }
